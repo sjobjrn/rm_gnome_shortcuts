@@ -20,7 +20,7 @@ if yes_no == 'Y':
     for line in keys_list[1:]:
         line_splitd = line.split(" ", 2)
         shortcut = line_splitd[0] + " " + line_splitd[1]
-        if ignored_keys in shortcut:
+        if shortcut in ignored_keys:
             print(ignored_keys)
             continue
         proc4 = subprocess.Popen("gsettings set {} [\"\"]".format(shortcut), shell=True, stdout=subprocess.PIPE, universal_newlines=True)
