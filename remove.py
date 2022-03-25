@@ -4,7 +4,16 @@ import subprocess
 ignored_keys = ["gsettings set org.gnome.settings-daemon.plugins.media-keys active", 
                 "gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step", 
                 "gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length", 
-                "gsettings set org.gnome.settings-daemon.plugins.media-keys priority"]
+                "gsettings set org.gnome.settings-daemon.plugins.media-keys priority",
+                "gsettings set org.gnome.settings-daemon.plugins.media-keys playback-forward",
+                "gsettings set org.gnome.settings-daemon.plugins.media-keys volume-mute-static",
+                "gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step",
+                "gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver-static",
+                "gsettings set org.gnome.mutter attach-modal-dialogs",
+                "gsettings set org.gnome.mutter no-tab-popup",
+                "gsettings set org.gnome.mutter.keybindings tab-popup-select"]
+
+
 
 print("WARNING!")
 yes_no = input("This will remove all keyboard shortcuts from gnome (Y/N)")
@@ -27,6 +36,6 @@ if yes_no == 'Y':
         line_splitd = line.split(" ", 2)
         shortcut = line_splitd[0] + " " + line_splitd[1]
         if shortcut not in ignored_keys:
-            proc4 = subprocess.Popen("gsettings set {} [\"\"]".format(shortcut), shell=True, stdout=subprocess.PIPE, universal_newlines=True)
+            proc4 = subprocess.Popen("gsettings set {} \"\"".format(shortcut), shell=True, stdout=subprocess.PIPE, universal_newlines=True)
             print("gsettings set {} [\"\"]".format(shortcut))
 
