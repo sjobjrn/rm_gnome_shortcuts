@@ -37,5 +37,5 @@ if yes_no == 'Y':
         shortcut = line_splitd[0] + " " + line_splitd[1]
         if shortcut not in ignored_keys:
             proc5 = subprocess.Popen("gsettings set {} \"\"".format(shortcut), shell=True, stdout=subprocess.PIPE, universal_newlines=True)
-            print(proc5)
+            print(proc5.stdout)
 
